@@ -4,13 +4,7 @@
 
 Install the dependencies and devDependencies.
 Open your favorite Terminal and run these commands.
-First Tab: (for npm users)
 
-```sh
-cd boilerplate_messagerie
-npm i
-```
-or  (for yarn users)
 ```sh
 cd boilerplate_messagerie
 yarn
@@ -19,7 +13,7 @@ Please delete the .parcel-cache before every re-installation of the project
 
 ## Run the server
 
-Run this command to launch to fake-api json-server
+On a new terminal tab, run this command to launch to fake-api json-server
 
 ```sh
 yarn server
