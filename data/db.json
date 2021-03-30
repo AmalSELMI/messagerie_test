@@ -2,32 +2,12 @@
   "data": [
     {
       "id": "225b75df-8e56-46dd-8fa2-693ab7c48f31",
-      "body": "Hello what's up?",
+      "body": "Hello",
       "private": false
     },
     {
       "id": "3f3421ec-1ee7-491f-9690-8c66a0e9e1a3",
-      "body": "hi",
-      "private": true
-    },
-    {
-      "id": "1c4c9c42-b993-4ca8-9bd7-b8a76553d781",
-      "body": "hey",
-      "private": false
-    },
-    {
-      "id": "5b20a9e8-acd1-4b07-8f9d-b939760e12d8",
-      "body": "wazzaaa",
-      "private": false
-    },
-    {
-      "id": "ac3279d5-a751-4532-af08-73ae582fb557",
-      "body": "yo",
-      "private": false
-    },
-    {
-      "id": "80a06369-5ff2-4d0f-bf64-974af01dd9c9",
-      "body": "cava",
+      "body": "What's up?",
       "private": true
     }
   ]
