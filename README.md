@@ -22,17 +22,13 @@ Please delete the .parcel-cache before every re-installation of the project
 Run this command to launch to fake-api json-server
 
 ```sh
-npx json-server --watch data/db.json --port 8000
+yarn server
 ```
 
 ## Run the app
 
 On a new tab, run this command to launch to fake-api json-server
 
-```sh
-npm start
-```
-or
 
 ```sh
 yarn start
@@ -46,10 +42,6 @@ The page will automatically reload if you make changes to the code.
 
 On a new tab, run this command to launch to launch the tests
 
-```sh
-npm test
-```
-or
 ```sh
 yarn test
 ```
