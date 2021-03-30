@@ -1,5 +1,3 @@
-# messagerie_test
-
 # Messagerie_Test
 
 ## Installation
