@@ -54,6 +54,7 @@ const MessageForm = ({ messages, setMessages }) => {
         private: messageConfidentiality === "Private",
       },
     ]);
+    setMessage("");
   };
 
   useEffect(() => {
