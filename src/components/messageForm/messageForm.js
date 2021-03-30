@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Divider,
   Box,
@@ -19,13 +19,15 @@ import styles from "./styles";
 const MessageForm = () => {
   const queryClient = new QueryClient({});
   const classes = styles();
-  const inputRef = useRef(null);
   const [messageConfidentiality, setMessageConfidentiality] = useState(
     "Public"
   );
+  const [message, setMessage] = useState("");
 
   const handleConfidentialityChange = (event) =>
     setMessageConfidentiality(event.target.value);
+
+  const handleMessageChange = (event) => setMessage(event.target.value);
 
   const postMessageMutationSetup = mutation({
     path: "data",
@@ -41,18 +43,14 @@ const MessageForm = () => {
   });
 
   const handleSubmit = () => {
-    const body = inputRef.current.value;
-    if (!body) return "";
-
     postMessageMutationSetup.mutate({
       body: {
         id: uuid(),
-        body,
+        body: message,
         private: messageConfidentiality === "Private",
       },
     });
-
-    inputRef.current.value = "";
+    setMessage("");
   };
 
   useEffect(() => {
@@ -85,19 +83,19 @@ const MessageForm = () => {
   return (
     <Box className={classes.root} display="flex">
       {/* --------------- Message Input ---------------------- */}
-      {/* <Paper className={classes.paper} elevation={0}>
+      <Paper className={classes.paper} elevation={0}>
         <Input
           id="message"
           className={classes.input}
           disableUnderline
           multiline
           rowsMax={5}
-          inputRef={inputRef}
+          onChange={handleMessageChange}
+          value={message}
           placeholder="Votre message..."
         />
       </Paper>
-      <Divider className={classes.divider} /> */}
-
+      <Divider className={classes.divider} />
       {/* --------------- Message Confidentiality ---------------------- */}
       <FormControl component="fieldset">
         <Box className={classes.radios}>
@@ -122,14 +120,14 @@ const MessageForm = () => {
           </RadioGroup>
         </Box>
       </FormControl>
-      {/* <Divider className={classes.divider} />
+      <Divider className={classes.divider} />
       <Button
         onClick={handleSubmit}
         variant="contained"
         className={classes.button}
       >
         <SendIcon />
-      </Button>  */}
+      </Button>
     </Box>
   );
 };

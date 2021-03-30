@@ -6,7 +6,11 @@ import styles from "./styles";
 
 const MessageLine = ({ message = {} }) => {
   const classes = styles();
-
+  const boxClass = clsx(
+    classes.messages,
+    classes.medium,
+    message.private ? classes.private : classes.public
+  );
   return (
     <Box
       className={clsx(classes.root)}
@@ -14,24 +18,12 @@ const MessageLine = ({ message = {} }) => {
       flexDirection="row"
       id={message.id}
     >
-      <Box
-        className={
-          message.private
-            ? clsx(classes.messages, classes.medium, classes.private)
-            : clsx(classes.messages, classes.medium, classes.public)
-        }
-      >
+      <Box className={boxClass}>
         <Typography align="center" color="textSecondary">
           {message.body}
         </Typography>
       </Box>
-      <Box
-        className={
-          message.private
-            ? clsx(classes.messages, classes.medium, classes.private)
-            : clsx(classes.messages, classes.medium, classes.public)
-        }
-      >
+      <Box className={boxClass}>
         <Typography align="center" color="textSecondary">
           {message.private ? "privé" : "public"}
         </Typography>
