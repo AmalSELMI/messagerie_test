@@ -1,34 +1,32 @@
 import * as React from "react";
 import { ThemeProvider } from "@material-ui/styles";
-import { render, screen } from "@testing-library/react";
+import { createMount } from "@material-ui/core/test-utils";
 import MessageLine from ".";
 import theme from "../../theme";
 
-describe.only("MessageLine", () => {
-  const messages = [
-    {
-      id: "01",
-      body: "what's up",
-      private: false,
-    },
-    {
-      id: "02",
-      body: "hey",
-      private: true,
-    },
-  ];
+describe("MessageLine", () => {
+  let mount;
+  const message = {
+    id: "01",
+    body: "what's up",
+    private: false,
+  };
 
   beforeEach(() => {
-    render(
-      <ThemeProvider theme={theme}>
-        <MessageLine id={messages[0].id} message={messages[0]} />
-        <MessageLine id={messages[1].id} message={messages[1]} />
-      </ThemeProvider>
-    );
+    mount = createMount();
+  });
+  afterEach(() => {
+    mount.cleanUp();
   });
 
-  it("Should render MessageLine with the right props", () => {
-    screen.findByText(messages[0].body);
-    screen.findByText(messages[0].body);
+  it("renders MessageLine component with expected props", () => {
+    const wrapper = mount(
+      <ThemeProvider theme={theme}>
+        <MessageLine message={message} />
+      </ThemeProvider>
+    );
+
+    expect(wrapper).toHaveLength(1);
+    expect(wrapper.text()).toEqual("what's uppublic");
   });
 });

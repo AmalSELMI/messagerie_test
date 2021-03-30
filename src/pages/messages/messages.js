@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@material-ui/core";
 import MessageLine from "../../components/messageLine";
 import MessageForm from "../../components/messageForm";
@@ -7,12 +7,18 @@ import styles from "./styles";
 
 const Messages = () => {
   const classes = styles();
-
-  const { data: messages, isLoading: messagesLoading } = query({
+  const [messages, setMessages] = useState(null);
+  const { data, isLoading: messagesLoading } = query({
     key: "messages",
     path: "data",
     condition: true,
   });
+
+  useEffect(() => {
+    if (data) {
+      setMessages(data);
+    }
+  }, [data]);
 
   if (messagesLoading) {
     return (
@@ -28,7 +34,7 @@ const Messages = () => {
       {messages?.map((message) => (
         <MessageLine key={message.id} message={message} />
       ))}
-      <MessageForm />
+      <MessageForm messages={messages} setMessages={setMessages} />
     </Box>
   );
 };

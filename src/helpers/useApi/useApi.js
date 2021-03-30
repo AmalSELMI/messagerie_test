@@ -18,7 +18,7 @@ export const query = ({ key, path, params = {}, retry = 3, condition }) =>
     { retry }
   );
 
-export const mutation = ({ path, method = "", params = {}, onSuccess }) =>
+export const mutation = ({ path, method = "", params = {}, ...props }) =>
   useMutation(
     async ({ body }) => {
       const response = await callApi({
@@ -31,6 +31,6 @@ export const mutation = ({ path, method = "", params = {}, onSuccess }) =>
       return response;
     },
     {
-      onSuccess,
+      ...props,
     }
   );

@@ -12,12 +12,7 @@ const MessageLine = ({ message = {} }) => {
     message.private ? classes.private : classes.public
   );
   return (
-    <Box
-      className={clsx(classes.root)}
-      display="flex"
-      flexDirection="row"
-      id={message.id}
-    >
+    <Box className={clsx(classes.root)} display="flex" flexDirection="row">
       <Box className={boxClass}>
         <Typography align="center" color="textSecondary">
           {message.body}

@@ -11,14 +11,24 @@
       "private": true
     },
     {
-      "id": "0f120841-6ec3-4891-8c1d-33eba4938d70",
-      "body": "yo",
-      "private": true
+      "id": "1c4c9c42-b993-4ca8-9bd7-b8a76553d781",
+      "body": "hey",
+      "private": false
     },
     {
-      "id": "39fbfff9-0fd4-4a27-9370-89e4e5d9b9ab",
-      "body": "hi",
+      "id": "5b20a9e8-acd1-4b07-8f9d-b939760e12d8",
+      "body": "wazzaaa",
       "private": false
+    },
+    {
+      "id": "ac3279d5-a751-4532-af08-73ae582fb557",
+      "body": "yo",
+      "private": false
+    },
+    {
+      "id": "80a06369-5ff2-4d0f-bf64-974af01dd9c9",
+      "body": "cava",
+      "private": true
     }
   ]
 }
