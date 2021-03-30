@@ -29,24 +29,24 @@ describe("MessageForm", () => {
     );
   });
 
-  // it("should generate default input onChange", () => {
-  //   console.log(wrapper.debug());
-  //   wrapper.find("#message").at(4).simulate("change");
-  //   expect(wrapper.text()).toEqual("");
-  // });
+  it("should generate default input onChange", () => {
+    console.log(wrapper.debug());
+    wrapper.find("#message").at(4).simulate("change");
+    expect(wrapper.text()).toEqual("");
+  });
 
-  // it("should change the input value", () => {
-  //   wrapper
-  //     .find("#message")
-  //     .at(5)
-  //     .simulate("change", {
-  //       target: {
-  //         name: "message",
-  //         value: "Hello",
-  //       },
-  //     });
-  //   expect(wrapper.find("#message").at(5).placeholder()).toEqual("Hello");
-  // });
+  it("should change the input value", () => {
+    wrapper
+      .find("#message")
+      .at(5)
+      .simulate("change", {
+        target: {
+          name: "message",
+          value: "Hello",
+        },
+      });
+    expect(wrapper.find("#message").at(5).placeholder()).toEqual("Hello");
+  });
 
   it("When i change the message confidentiality into private, it should be selected as private", () => {
     console.log(wrapper.debug());
@@ -55,15 +55,15 @@ describe("MessageForm", () => {
     expect(wrapper.find("#private").at(2).prop("checked")).toBeTruthy();
   });
 
-  // it("When i change the message confidentiality the handleConfidentialityChange function should be called", () => {
-  //   wrapper.find("#private").at(0).simulate("click");
-  //   wrapper.find("#private").simulate("change");
+  it("When i change the message confidentiality the handleConfidentialityChange function should be called", () => {
+    wrapper.find("#private").at(0).simulate("click");
+    wrapper.find("#private").simulate("change");
 
-  //   expect(handleConfidentialityChange).toHaveBeenCalledTimes(1);
-  // });
+    expect(handleConfidentialityChange).toHaveBeenCalledTimes(1);
+  });
 
-  // it("should call the handleSubmit function when clicking on the submit button", () => {
-  //   wrapper.find("button").simulate("click");
-  //   expect(handleSubmit).toHaveBeenCalledTimes(1);
-  // });
+  it("should call the handleSubmit function when clicking on the submit button", () => {
+    wrapper.find("button").simulate("click");
+    expect(handleSubmit).toHaveBeenCalledTimes(1);
+  });
 });
